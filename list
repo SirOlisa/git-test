@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#Opening message
+echo "Hello! This is your To-do list for the day
+
+$(date). "
+echo "What would you like to get done today?"
+
+#choices=$(dialog --checklist "Pending Activities" \
+	# "Wash Clothes" off \
+	 #"Wash Plates" off \
+	 #"Iron Clothes" off \
+	 #"Take Lessons" off  )
+
+# Define the options for the checkbox
+options=(
+  1 "Washing Plates" off
+  2 "Laundry" off
+  3 "Iron Clothes" off
+)
+
+# Display the checkbox and capture the user's selections
+selected_options=$(dialog --stdout --checklist "Pending Activities:" 15 40 5 "${options[@]}")
+
+# Check if the user pressed OK or Cancel
+if [ $? -eq 0 ]; then
+	clear
+  echo "You selected: $selected_options"
+else
+  echo "You canceled the selection."
+fi
+#clear
+#echo "You selected $choices"
