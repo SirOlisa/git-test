@@ -1,0 +1,36 @@
+#!/bin/bash
+sleep 1
+echo "Welcome to calculator. Type in your simple expression" 
+echo "To quit at any time simply press q"
+#TRYING TO ADD A CONDITION TO CHECK FOR THE BC COMMAND AND DOWNLOAD IT IF ITS NOT PREINSTALLED
+#if 
+#	[ -f  ~/etc/apt/bc ]
+#then
+#	echo "got it!"
+#fi
+#TAKE INPUT FROM USER
+read num1 sign num2
+#ENSURE THE CONSOLE CLOSES IF THE USER TYPES q
+while [ $num1 != "q" ]
+do 	
+	ans2=$(echo "scale=2; $num1 $sign $num2" | bc)
+	echo "Your answer is $ans2"
+#TRYING TO BE ABLE TO LOOP THE MATH EXPRESSION INFINITELY TILL THE USER PRESSES q SO FAR I CAN ONLY DO TWO ITERATIONS
+	read sign2 nextnum
+if [ $sign2 = "q" ]
+then
+	exit
+else 
+ans3=$(echo "scale=2; $ans2 $sign2 $nextnum" | bc)
+	echo "Your answer is $ans3"
+
+fi
+
+	break
+done
+if [ $num1 = "q" ]
+then
+	exit
+fi
+#exit
+#fi
