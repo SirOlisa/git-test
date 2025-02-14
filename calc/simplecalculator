@@ -1,0 +1,54 @@
+#!/bin/bash
+echo "Hello Genius!"
+sleep 1
+echo "What are we solving today?"
+sleep 1
+echo "Type in the first number"
+
+echo "(to exit the calculator, simply press q)"
+read input1
+if [[ $input1 -le 999999 ]]
+then 
+	echo "First input accepted.
+Type second input"
+	fi
+	read input2
+if [[ $input2 -le 999999 ]]
+then
+	echo "Both inputs accepted, what are we doing to them?"
+	fi
+	read input3
+if [[ $input3 = "+" ]]
+then 
+	answer=($expr $input1 $input3 $input2)
+	echo "Your answer is $answer."
+	fi
+	exit
+	if [[ $input3 = "-" ]]
+	then 
+		answer=($expr $input1 $input3 $input2)
+		echo "Your answer is $answer."
+	fi
+		exit
+	if [[ $input3 = "/" ]]
+	then 
+		answer=($expr $input1 $input3 $input2)
+		echo "Your answer is $answer."
+	fi
+		exit
+	if [[ $input3 = "*" ]]
+	then 
+		[[$input3 = /* ]]
+		answer=($expr $input1 $input3 $input2)
+		echo "Your answer is $answer."
+	fi
+		exit
+if [[ $input1 = "q" ]]
+then 
+	echo "Alright then, maybe next time"
+	exit
+else
+		echo "Wrong input"
+fi	
+
+
